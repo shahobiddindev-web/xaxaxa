@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f7ff">
+  <title>EnglishFlow — Ingliz tilini o‘rganish</title>
+  <meta name="description" content="Inglizcha lug‘at, noto‘g‘ri fe'llar, zamonlar formulasi va testlar orqali ingliz tilini o‘rganing.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home"><span class="logo-icon">E</span> English<span>Flow</span></a>
+    <nav class="nav">
+      <a href="#dictionary">Lug‘at</a>
+      <a href="#verbs">Noto‘g‘ri fe’llar</a>
+      <a href="#formulas">Formula Chart</a>
+      <a href="#quiz">Test</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Rang rejimini almashtirish">☾</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">✦ Ingliz tilini oson o‘rganing</span>
+        <h1>Ingliz tilingizni<br> <span>yangi bosqichga</span> olib chiqing.</h1>
+        <p>Lug‘at yodlang, fe’llarni o‘rganing va ingliz tili zamonlarini sodda formulalar orqali tushuning.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#dictionary">O‘rganishni boshlash →</a>
+          <a class="btn secondary" href="#formulas">Formulalarni ko‘rish</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="wordCount">0+</strong><span>Lug‘at so‘zlari</span></div>
+          <div><strong id="verbCount">0+</strong><span>Noto‘g‘ri fe’llar</span></div>
+          <div><strong>12</strong><span>Asosiy zamonlar</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ingliz tilini o‘rganish tasviri">
+        <div class="floating-card card-top">📚 <span><b>New words</b><small>Har kuni yangi so‘zlar</small></span></div>
+        <div class="book">
+          <div class="book-inner">
+            <span class="book-label">ENGLISH</span>
+            <h2>Learn.<br>Practice.<br><span>Grow.</span></h2>
+            <div class="book-line"></div>
+            <p>Your journey starts here.</p>
+          </div>
+        </div>
+        <div class="floating-card card-bottom">✨ <span><b>Keep learning!</b><small>Har kuni oz-ozdan</small></span></div>
+        <span class="decor decor-one">✳</span>
+        <span class="decor decor-two">✦</span>
+      </div>
+    </section>
+
+    <section class="section" id="dictionary">
+      <div class="section-heading">
+        <div><span class="eyebrow">01 / VOCABULARY</span><h2>Inglizcha lug‘at</h2>
+        <p>Inglizcha so‘z, o‘zbekcha tarjima yoki misol orqali qidiring.</p></div>
+        <span class="section-icon">📖</span>
+      </div>
+
+      <div class="search-panel">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="vocabSearch" type="search" placeholder="Masalan: apple, olma, book..." autocomplete="off">
+          <kbd>Qidirish</kbd>
+        </label>
+        <select id="levelFilter" aria-label="Darajani tanlash">
+          <option value="all">Barcha darajalar</option>
+          <option value="A1">A1 — Boshlang‘ich</option>
+          <option value="A2">A2 — Elementar</option>
+          <option value="B1">B1 — O‘rta</option>
+        </select>
+        <select id="wordFilter" aria-label="Lug‘at turini tanlash">
+          <option value="all">Barcha so‘zlar</option>
+          <option value="favorites">⭐ Sevimlilar</option>
+        </select>
+      </div>
+
+      <div class="results-line"><span id="resultCount">So‘zlar yuklanmoqda...</span><span>🔊 Tugmasi orqali talaffuzni tinglang</span></div>
+      <div class="word-grid" id="wordGrid"></div>
+      <div class="empty-state hidden" id="emptyWords">🔎 So‘z topilmadi. Boshqa so‘z bilan qidirib ko‘ring.</div>
+    </section>
+
+    <section class="section alt-section" id="verbs">
+      <div class="section-heading">
+        <div><span class="eyebrow">02 / IRREGULAR VERBS</span><h2>Noto‘g‘ri fe’llar</h2>
+        <p>V1, V2 va V3 shakllarini tarjimasi bilan o‘rganing.</p></div>
+        <span class="section-icon">⚡</span>
+      </div>
+
+      <div class="search-panel">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="verbSearch" type="search" placeholder="Fe’l qidiring: go, went, bormoq..." autocomplete="off">
+        </label>
+        <select id="verbSort" aria-label="Fe’llarni saralash">
+          <option value="default">Standart tartib</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>V1 — Asosiy</th><th>V2 — O‘tgan</th><th>V3 — Past participle</th><th>Tarjimasi</th><th>Ovoz</th></tr>
+          </thead>
+          <tbody id="verbTable"></tbody>
+        </table>
+      </div>
+      <p class="table-note" id="verbResultCount"></p>
+    </section>
+
+    <section class="section" id="formulas">
+      <div class="section-heading">
+        <div><span class="eyebrow">03 / GRAMMAR</span><h2>English Formula Chart</h2>
+        <p>12 ta asosiy zamonning tasdiq, inkor va savol formulalari.</p></div>
+        <span class="section-icon">🧠</span>
+      </div>
+
+      <div class="formula-legend">
+        <span><i class="dot dot-green"></i> Tasdiq (+)</span>
+        <span><i class="dot dot-red"></i> Inkor (−)</span>
+        <span><i class="dot dot-blue"></i> Savol (?)</span>
+      </div>
+      <div class="formula-grid" id="formulaGrid"></div>
+      <div class="grammar-note">
+        <strong>Belgilarni eslab qoling:</strong>
+        <p><b>S</b> — ega · <b>V1</b> — fe’lning birinchi shakli · <b>V2</b> — ikkinchi shakli · <b>V3</b> — uchinchi shakli · <b>O</b> — to‘ldiruvchi · <b>Aux</b> — yordamchi fe’l.</p>
+        <p><b>He / She / It</b> bilan Present Simple tasdiq gapida odatda fe’lga <b>-s / -es</b> qo‘shiladi.</p>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="quiz">
+      <div class="section-heading">
+        <div><span class="eyebrow">04 / PRACTICE</span><h2>Bilimingizni sinang</h2>
+        <p>Qisqa testni yeching va natijangizni ko‘ring.</p></div>
+        <span class="section-icon">🎯</span>
+      </div>
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-top"><span id="quizProgress">Savol 1</span><span id="quizScore">Natija: 0</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <h3 id="quizQuestion">Savol yuklanmoqda...</h3>
+        <div class="quiz-options" id="quizOptions"></div>
+        <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+        <div class="quiz-bottom">
+          <button class="btn secondary" id="restartQuiz">Qayta boshlash</button>
+          <button class="btn primary" id="nextQuestion" disabled>Keyingi savol →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="daily-banner">
+      <div class="daily-icon">🌱</div>
+      <div><h2>Har kuni ozgina o‘rganing.</h2><p>Kuniga 10 ta yangi so‘z — katta natijaga birinchi qadam.</p></div>
+      <a class="btn banner-btn" href="#dictionary">Lug‘atga qaytish ↑</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home"><span class="logo-icon">E</span> English<span>Flow</span></a>
+    <p>Ingliz tilini sodda, tartibli va zavq bilan o‘rganing.</p>
+    <span>© <span id="year"></span> EnglishFlow</span>
+  </footer>
+</body>
+</html>
